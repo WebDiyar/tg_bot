@@ -1,11 +1,10 @@
 const { Telegraf } = require('telegraf');
 require('dotenv').config();
-const http = require('http');
 
-const TOKEN = process.env.BOT_TOKEN;
+const TOKEN = "7336290672:AAFP-CwXoPvxBSTJpGeywBexogo0ax0OJRE";
 const bot = new Telegraf(TOKEN);
 
-const web_link = process.env.WEB_LINK;
+const web_link = "https://telegram-mini-app-sigma-seven.vercel.app/";
 
 // Bot logic
 bot.start((ctx) => {
@@ -45,12 +44,3 @@ bot.on('message', (ctx) => {
 });
 
 bot.launch();
-
-// Create a simple HTTP server to keep the service alive and listen on a port
-const port = process.env.PORT || 3000;
-http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Bot is running\n');
-}).listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
-});
